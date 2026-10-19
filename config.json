@@ -1,0 +1,77 @@
+{
+  "analysis": {
+    "window_months": 12,
+    "min_passengers_for_ranking": 100000,
+    "latest_month_min_completeness": 0.85,
+    "min_otp_months_for_congestion": 1,
+    "full_coverage_otp_months": 12,
+    "target_seat_load_factor_pct": 80
+  },
+  "service_classes": {
+    "passenger": ["F", "L"],
+    "cargo": ["G", "P"]
+  },
+  "hub_classes_min_enplanement_share_pct": {
+    "large_hub": 1.0,
+    "medium_hub": 0.25,
+    "small_hub": 0.05,
+    "nonhub": 0.0
+  },
+  "congestion_weights": {
+    "delay_rate_15_pct": 0.35,
+    "avg_dep_delay_min": 0.25,
+    "cancellation_rate_pct": 0.20,
+    "avg_taxi_out_min": 0.20
+  },
+  "demand_pressure_weights": {
+    "load_factor_pct": 0.45,
+    "pax_minus_seat_growth_pp": 0.35,
+    "congestion_index": 0.20
+  },
+  "expansion_weights": {
+    "pax_cagr_3y_pct": 0.30,
+    "departure_growth_yoy_pct": 0.20,
+    "congestion_index": 0.25,
+    "load_factor_pct": 0.15,
+    "passengers_ttm": 0.10
+  },
+  "stability": {
+    "weight_perturbations_pct": [-20, -10, 10, 20],
+    "top_n": 3
+  },
+  "long_haul_thresholds_miles": [2500, 3000],
+  "regions": {
+    "new england": ["CT", "MA", "ME", "NH", "RI", "VT"],
+    "mid-atlantic": ["NY", "NJ", "PA", "DE", "MD", "DC"],
+    "pacific northwest": ["WA", "OR", "ID"],
+    "west coast": ["CA", "OR", "WA"],
+    "southeast": ["FL", "GA", "SC", "NC", "AL", "MS", "TN"],
+    "midwest": ["IL", "IN", "MI", "OH", "WI", "MN", "IA", "MO", "KS", "NE", "ND", "SD"],
+    "southwest": ["AZ", "NM", "NV", "TX", "OK", "UT"]
+  },
+  "airport_aliases": {
+    "LA": ["LAX"],
+    "LOS ANGELES": ["LAX"],
+    "LOS ANGELES AREA": ["LAX", "BUR", "LGB", "ONT", "SNA"],
+    "SANTA ANA": ["SNA"],
+    "ORANGE COUNTY": ["SNA"],
+    "JOHN WAYNE": ["SNA"],
+    "ANCHORAGE": ["ANC"],
+    "SAN FRANCISCO": ["SFO"],
+    "BAY AREA": ["SFO", "OAK", "SJC"],
+    "BOSTON": ["BOS"],
+    "NEW YORK": ["JFK", "LGA", "EWR"],
+    "NYC": ["JFK", "LGA", "EWR"],
+    "WASHINGTON DC": ["DCA", "IAD", "BWI"],
+    "CHICAGO": ["ORD", "MDW"],
+    "HOUSTON": ["IAH", "HOU"],
+    "DALLAS": ["DFW", "DAL"]
+  },
+  "caveats": {
+    "expansion": "Screening signal from traffic and operations data only. It does not prove the terminal is the bottleneck or that a project is profitable (no capex, lease, concession or gate data).",
+    "congestion": "Delays have many causes (weather, ATC, airline operations, airspace). Airport infrastructure is only one of them.",
+    "demand_pressure": "Unmet demand is not directly observable in public data. This is a proxy built from load factor, passenger-vs-seat growth and congestion.",
+    "long_haul": "Shares are of departures from the airport by great-circle segment distance. Cargo and passenger service are reported separately.",
+    "otp_coverage": "On-Time Performance covers flights of large US carriers only, and only the months loaded locally. Partial-year coverage adds seasonal bias."
+  }
+}
